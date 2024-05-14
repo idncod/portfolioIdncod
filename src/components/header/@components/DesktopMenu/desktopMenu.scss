@@ -1,0 +1,29 @@
+@import '../../../../styles/variables.scss';
+
+.header-desktop-menu-container {
+	display: flex;
+	justify-content: center;
+	gap: $spacing-5x;
+
+	.item {
+		position: relative;
+
+		a {
+			color: $site-text-color;
+			font-weight: $site-regular;
+			text-decoration: none;
+
+			&:hover {
+				&:after {
+					content: ' ';
+					position: absolute;
+					left: 0;
+					right: 0;
+					top: $spacing-2x;
+					height: 2px;
+					background-color: $link-color;
+				}
+			}
+		}
+	}
+}

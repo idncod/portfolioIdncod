@@ -1,0 +1,36 @@
+{
+  "name": "zoom-parallax",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-brands-svg-icons": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@studio-freight/lenis": "^1.0.33",
+    "autoprefixer": "^10.4.19",
+    "embla-carousel-autoplay": "^8.0.4",
+    "embla-carousel-react": "^8.0.4",
+    "firebase": "^10.12.0",
+    "framer-motion": "^10.18.0",
+    "lenis": "^1.0.45",
+    "next": "14.0.4",
+    "postcss": "^8.4.38",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-icons": "^5.2.1",
+    "sass": "^1.69.7"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.2",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4",
+    "tailwindcss": "^3.4.3"
+  }
+}

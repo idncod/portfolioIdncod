@@ -1,0 +1,84 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+
+body{
+    margin: 20px;
+    background-color: rgb(24, 24, 24);
+}
+
+/* .griddy {
+    display: grid;
+    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    margin-top: 50px;
+    align-items: center;
+    justify-items: center;
+} */
+/* 
+.grid-item {
+  display: grid;
+    text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+    .griddy {
+        display: grid;
+        font-weight: 600;
+        font-size: 30px;
+        align-items: center;
+        grid-template-columns: auto auto auto;
+        color: white;
+        margin: 30px;
+    }
+
+    .grid-item {
+        text-align: center;
+        font-size: 40px;
+        /* border: 3px solid green; 
+        align-content: center;
+
+    }
+} */
+
+/* 
+.grid-item .icon {
+    color: white; 
+    transition: color 0.3s, box-shadow 0.3s; 
+  }
+  
+  .grid-item .icon:hover {
+    color: blue;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .grid-item .icon:active {
+    color: lightcoral
+  }
+  
+  .grid-item .icon:visited {
+    color: white; 
+  }
+
+ */
+ @tailwind base;
+ @tailwind components;
+ @tailwind utilities;
+ 
+ @font-face {
+   font-family: 'Regular';
+  }
+
+ 
+ :root {
+   --foreground-rgb: 0, 0, 0;
+   --background-start-rgb: 214, 219, 220;
+   --background-end-rgb: 255, 255, 255;
+ }
+ 
+ @media (prefers-color-scheme: dark) {
+   :root {
+     --foreground-rgb: 255, 255, 255;
+     --background-start-rgb: 0, 0, 0;
+     --background-end-rgb: 0, 0, 0;
+   }
+ }
