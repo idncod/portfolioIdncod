@@ -37,7 +37,7 @@ const Blog = () => {
 
   return (
     <div className="blog-page">
-      <h1 className={styles.blog}>Blog will be available on May 20th</h1>
+      <h1 className={styles.blog}>This page is under maintenance</h1>
       <div className="blog-posts">
         {blogPosts.map(post => (
           <BlogPost
