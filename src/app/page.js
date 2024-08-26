@@ -33,9 +33,9 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>idncod. Viola Lykova. Software Engineer, Fullstack.</title>
-                <meta name="description" content="idncod" />
-                <link rel="icon" href="/favicon_36x36.png" />
+                <title>idncod. Viola Lykova. Software Engineer, Frontend, DevOps, Fullstack.</title>
+                <meta name="description" content="idncod"/>
+                <link rel="icon" href="/favicon.ico" />
             </Head>
 
             <section className={styles.main}>
@@ -45,6 +45,12 @@ export default function Home() {
                             'Viola Lykova',
                             1000,
                             'Software Engineer',
+                            1000,
+                            'Frontend',
+                            1000,
+                            'DevOps',
+                            1000,
+                            'Fullstack',
                             1000,
                             () => {
                                 console.log('text animate completed');
