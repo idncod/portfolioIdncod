@@ -17,6 +17,8 @@ import web3 from "../../public/images/web3.png";
 import web4 from "../../public/images/web4.png";
 import web5 from "../../public/images/web5.png";
 import web6 from "../../public/images/web6.png";
+import ProjectCard from '../components/ProjectCard';
+import ClientOnly from "../components/ClientOnly";
 
 export default function Home() {
     useEffect(() => {
@@ -161,6 +163,12 @@ export default function Home() {
                         />
                     </div>
                 </div>
+            </section>
+
+            <section style={{ display: 'grid', placeItems: 'center', minHeight: '100vh', backgroundColor: '#121212' }}>
+                <ClientOnly>
+                <ProjectCard />
+                </ClientOnly>
             </section>
 
             <section className={styles.squareSectionContainer}>
