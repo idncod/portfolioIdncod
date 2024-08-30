@@ -1,8 +1,14 @@
 'use client'
-import CustomLineChart from '../../../components/LineChart';
+import { FC } from 'react';
 import styles from './DataVisualization.module.scss';
+import CustomLineChart from '../../../components/LineChart';
 
-const dummyData = [
+interface DataPoint {
+    name: string;
+    value: number;
+}
+
+const dummyData: DataPoint[] = [
     { name: 'Jan', value: 400 },
     { name: 'Feb', value: 300 },
     { name: 'Mar', value: 200 },
@@ -17,13 +23,15 @@ const dummyData = [
     { name: 'Dec', value: 300 },
 ];
 
-export default function DataVisualizationPage() {
+const DataVisualizationPage: FC = () => {
     return (
         <div className={styles.container}>
-            <h1 className={styles.title}>Sample Data Visualization</h1>
+            <h1 className={styles.title}>Project Data Visualization</h1>
             <div className={styles.chart}>
                 <CustomLineChart data={dummyData} />
             </div>
         </div>
     );
-}
+};
+
+export default DataVisualizationPage;
