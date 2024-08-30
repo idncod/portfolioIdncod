@@ -165,7 +165,7 @@ export default function Home() {
                 </div>
             </section>
 
-            <section style={{ display: 'grid', placeItems: 'center', minHeight: '100vh', backgroundColor: '#121212' }}>
+            <section style={{ display: 'grid', placeItems: 'center', minHeight: '100vh'}}>
                 <ClientOnly>
                 <ProjectCard />
                 </ClientOnly>

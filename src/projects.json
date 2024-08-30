@@ -13,5 +13,10 @@
     "name": "The perfect pipeline with tests",
     "description": "This is a short description about Project Gamma.",
     "route": "/project/perfect-pipeline"
+  },
+  {
+    "name": "Data Visualization Sample",
+    "description": "A simple lightweight chart to demonstrate data visualization in a Next.js app.",
+    "route": "/project/data-visualization"
   }
 ]
