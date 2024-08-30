@@ -1,0 +1,17 @@
+[
+  {
+    "name": "IP Matcher",
+    "description": "This is a short description about Project Alpha.",
+    "route": "/project/ip-matcher"
+  },
+  {
+    "name": "REST API vs GraphQL",
+    "description": "This is a short description about Project Beta.",
+    "route": "/project/rest-vs-graph"
+  },
+  {
+    "name": "The perfect pipeline with tests",
+    "description": "This is a short description about Project Gamma.",
+    "route": "/project/perfect-pipeline"
+  }
+]

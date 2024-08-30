@@ -1,91 +1,91 @@
-.card {
-  position: relative;
-  width: 100%;
-  max-width: 600px;
-  height: 300px;
-  background-color: #333;
-  color: #fff;
-  overflow: hidden;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 20px auto;
-}
-
-.cardBorder {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 2px solid transparent;
-  border-radius: 10px;
-  z-index: 10;
-}
-
-.cardContent {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-}
-
-.splitLeft, .splitRight {
-  position: absolute;
-  top: 0;
-  width: 50%;
-  height: 100%;
-  background-color: #222;
-  z-index: 5;
-}
-
-.splitLeft {
-  left: 0;
-  clip-path: polygon(0 0, 100% 0, 0% 100%);
-}
-
-.splitRight {
-  right: 0;
-  clip-path: polygon(0% 0%, 100% 0, 100% 100%);
-}
-
-.aboutProject {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-  z-index: 15;
-
-  h3 {
-    margin: 0;
-    font-size: 1.5rem;
-  }
-
-  p {
-    margin: 10px 0;
-    font-size: 1rem;
-  }
-
-  .readMore {
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-  }
-
-  .readMore:hover {
-    background-color: darkred;
-  }
-}
-
-.card:hover .aboutProject {
-  opacity: 1;
-}
+//.card {
+//  position: relative;
+//  width: 100%;
+//  max-width: 600px;
+//  height: 300px;
+//  background-color: #333;
+//  color: #fff;
+//  overflow: hidden;
+//  border-radius: 10px;
+//  display: flex;
+//  align-items: center;
+//  justify-content: center;
+//  margin: 20px auto;
+//}
+//
+//.cardBorder {
+//  position: absolute;
+//  top: 0;
+//  left: 0;
+//  width: 100%;
+//  height: 100%;
+//  border: 2px solid transparent;
+//  border-radius: 10px;
+//  z-index: 10;
+//}
+//
+//.cardContent {
+//  position: relative;
+//  width: 100%;
+//  height: 100%;
+//  display: grid;
+//  grid-template-rows: 1fr 1fr;
+//}
+//
+//.splitLeft, .splitRight {
+//  position: absolute;
+//  top: 0;
+//  width: 50%;
+//  height: 100%;
+//  background-color: #222;
+//  z-index: 5;
+//}
+//
+//.splitLeft {
+//  left: 0;
+//  clip-path: polygon(0 0, 100% 0, 0% 100%);
+//}
+//
+//.splitRight {
+//  right: 0;
+//  clip-path: polygon(0% 0%, 100% 0, 100% 100%);
+//}
+//
+//.aboutProject {
+//  position: absolute;
+//  top: 50%;
+//  left: 50%;
+//  transform: translate(-50%, -50%);
+//  opacity: 0;
+//  transition: opacity 0.5s ease-in-out;
+//  z-index: 15;
+//
+//  h3 {
+//    margin: 0;
+//    font-size: 1.5rem;
+//  }
+//
+//  p {
+//    margin: 10px 0;
+//    font-size: 1rem;
+//  }
+//
+//  .readMore {
+//    background-color: red;
+//    color: white;
+//    border: none;
+//    padding: 10px 20px;
+//    cursor: pointer;
+//    border-radius: 5px;
+//    font-size: 1rem;
+//    transition: background-color 0.3s ease;
+//  }
+//
+//  .readMore:hover {
+//    background-color: darkred;
+//  }
+//}
+//
+//.card:hover .aboutProject {
+//  opacity: 1;
+//}
