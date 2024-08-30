@@ -27,8 +27,10 @@ const DataVisualizationPage: FC = () => {
     return (
         <div className={styles.container}>
             <h1 className={styles.title}>Project Data Visualization</h1>
-            <div className={styles.chart}>
-                <CustomLineChart data={dummyData} />
+            <div className={styles['chart-wrapper']}>
+                <div className={styles.chart}>
+                    <CustomLineChart data={dummyData} />
+                </div>
             </div>
         </div>
     );
