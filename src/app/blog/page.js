@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Blog.module.scss'
 const BlogPage = async () => {
-    const res = await fetch('http://localhost:3000/api/posts'); // Use the correct URL or endpoint
+    const res = await fetch(process.env.POSTS_URL + '/posts');
     const posts = await res.json();
 
     if (res.status !== 200) {
