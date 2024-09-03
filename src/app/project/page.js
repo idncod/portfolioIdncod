@@ -1,10 +1,10 @@
 'use client'
 import { useEffect, useState } from 'react';
-import { firestore } from '../../firebase';
-import styles from '../page.module.scss'
+import styles from '../page.module.scss';
+
 const BlogPost = ({ title, content, date }) => {
     console.log('Rendering BlogPost with props:', title, content, date);
-    const postDate = date.toDate();
+    const postDate = new Date(date); // Convert date string to Date object
 
     return (
         <div className="blog-post-container">
@@ -21,12 +21,13 @@ const Blog = () => {
     useEffect(() => {
         const fetchBlogPosts = async () => {
             try {
-                const blogPostsSnapshot = await firestore.collection('blogPosts').get();
-                const fetchedBlogPosts = blogPostsSnapshot.docs.map(doc => ({
-                    id: doc.id,
-                    ...doc.data(),
-                }));
-                setBlogPosts(fetchedBlogPosts);
+                // Replace with your API endpoint to fetch blog posts
+                const response = await fetch('/api/blog-posts');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                setBlogPosts(data);
             } catch (error) {
                 console.error('Error fetching blog posts:', error);
             }
@@ -47,8 +48,7 @@ const Blog = () => {
                         date={post.date}
                     />
                 ))}
-                {/*ADD THESE UNDERLINES WITH CUSTOM COLOURS TO THE BLOG TO THE LINKED WORDS: https://tailwindcss.com/docs/text-decoration-color*/}
-
+                {/* ADD THESE UNDERLINES WITH CUSTOM COLOURS TO THE BLOG TO THE LINKED WORDS: https://tailwindcss.com/docs/text-decoration-color */}
             </div>
         </div>
     );
