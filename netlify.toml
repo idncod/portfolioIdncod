@@ -1,8 +1,7 @@
 [build]
   command = "npm run build"
   publish = ".next"
-  functions = "netlify/functions"
-  timeout = 20m
 
-[build.environment]
-  NODE_VERSION = "18"
+[functions]
+  directory = "netlify/functions"
+  timeout = 120  # Set timeout in seconds
