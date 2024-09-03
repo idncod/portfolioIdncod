@@ -6,7 +6,7 @@ const BlogPage = async () => {
     let errorMessage = '';
 
     try {
-        const res = await fetch('https://idncod.netlify.app/api/posts');
+        const res = await fetch(process.env.POSTS_URL + '/posts');
 
         if (!res.ok) {
             throw new Error(`HTTP error! Status: ${res.status}`);
