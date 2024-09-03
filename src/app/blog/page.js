@@ -1,26 +1,25 @@
-"use client"
-import useSWR from 'swr';
+import React from 'react';
 import styles from './Blog.module.scss'
-const fetcher = (url) => fetch(url).then((res) => res.json());
+const BlogPage = async () => {
+    const res = await fetch('http://localhost:3000/api/posts'); // Use the correct URL or endpoint
+    const posts = await res.json();
 
-export default function BlogPage() {
-    const { data: posts, error } = useSWR('/api/posts', fetcher);
-
-    if (error) return <div>Error loading posts.</div>;
-    if (!posts) return <div>Loading...</div>;
+    if (res.status !== 200) {
+        console.error('Failed to fetch posts:', posts.error);
+        return <div>Error fetching posts</div>;
+    }
 
     return (
         <div className={styles.container}>
-            <h1>Blog Posts</h1>
-            <ul>
-                {posts.map((post) => (
-                    <li key={post.id}>
-                        <h2 className={styles.title}>{post.title}</h2>
-                        <p>{post.content}</p>
-                        <small>Posted on: {new Date(post.created_at).toLocaleDateString()}</small>
-                    </li>
-                ))}
-            </ul>
+            {posts.map(post => (
+                <div key={post.id}>
+                    <h2>{post.title}</h2>
+                    <p>{post.content}</p>
+                    <p>{new Date(post.created_at).toLocaleDateString()}</p>
+                </div>
+            ))}
         </div>
     );
-}
+};
+
+export default BlogPage;
