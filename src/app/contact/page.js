@@ -1,3 +1,16 @@
+import React from 'react';
+
+const Contact = () => {
+    return (
+        <div>
+            <h1>Contact me via viola-swe@proton.me</h1>
+        </div>
+    );
+};
+
+export default Contact;
+
+
 // 'use client'
 // import React, { useRef } from 'react';
 // import { collection, addDoc } from "firebase/firestore";
