@@ -1,57 +1,26 @@
-'use client'
-import { useEffect, useState } from 'react';
-import { firestore } from '../../firebase';
-import styles from '../page.module.scss'
-const BlogPost = ({ title, content, date }) => {
-  console.log('Rendering BlogPost with props:', title, content, date);
-  const postDate = date.toDate();
+"use client"
+import useSWR from 'swr';
+import styles from './Blog.module.scss'
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
-  return (
-    <div className="blog-post-container">
-      <h3>{title}</h3>
-      <p>{content}</p>
-      <p>{postDate.toLocaleDateString()}</p>
-    </div>
-  );
-};
+export default function BlogPage() {
+    const { data: posts, error } = useSWR('/api/posts', fetcher);
 
-const Blog = () => {
-  const [blogPosts, setBlogPosts] = useState([]);
+    if (error) return <div>Error loading posts.</div>;
+    if (!posts) return <div>Loading...</div>;
 
-  useEffect(() => {
-    const fetchBlogPosts = async () => {
-      try {
-        const blogPostsSnapshot = await firestore.collection('blogPosts').get();
-        const fetchedBlogPosts = blogPostsSnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setBlogPosts(fetchedBlogPosts);
-      } catch (error) {
-        console.error('Error fetching blog posts:', error);
-      }
-    };
-
-    fetchBlogPosts();
-  }, []);
-
-  return (
-    <div className="blog-page">
-      <h1 className={styles.blog}>This page is under maintenance</h1>
-      <div className="blog-posts">
-        {blogPosts.map(post => (
-          <BlogPost
-            key={post.id}
-            title={post.title}
-            content={post.content}
-            date={post.date}
-          />
-        ))}
-            {/*ADD THESE UNDERLINES WITH CUSTOM COLOURS TO THE BLOG TO THE LINKED WORDS: https://tailwindcss.com/docs/text-decoration-color*/}
-
-      </div>
-    </div>
-  );
-};
-
-export default Blog;
+    return (
+        <div className={styles.container}>
+            <h1>Blog Posts</h1>
+            <ul>
+                {posts.map((post) => (
+                    <li key={post.id}>
+                        <h2 className={styles.title}>{post.title}</h2>
+                        <p>{post.content}</p>
+                        <small>Posted on: {new Date(post.created_at).toLocaleDateString()}</small>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+}
