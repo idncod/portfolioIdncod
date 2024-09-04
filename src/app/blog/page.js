@@ -1,64 +1,47 @@
+'use client'
 import React from 'react';
+import styles from "./Blog.module.scss";
 
-const BlogPage = () => {
+async function fetchPosts() {
+    const response = await fetch('https://idncod.netlify.app/.netlify/functions/fetch-posts');
+    const data = await response.json();
+
+    if (!response.ok) {
+        throw new Error('Failed to fetch posts');
+    }
+
+    return data;
+}
+
+export default function PostsPage() {
+    const [posts, setPosts] = React.useState([]);
+    const [error, setError] = React.useState(null);
+
+    React.useEffect(() => {
+        async function loadPosts() {
+            try {
+                const postsData = await fetchPosts();
+                setPosts(postsData);
+            } catch (error) {
+                setError(error.message);
+            }
+        }
+
+        loadPosts();
+    }, []);
+
+    if (error) {
+        return <div>Error: {error}</div>;
+    }
+
     return (
-        <div>
-            hi
+        <div className={styles.container}>
+            <h1>Posts</h1>
+            <ul>
+                {posts.map((post) => (
+                    <li key={post.id}>{post.title}</li>
+                ))}
+            </ul>
         </div>
     );
-};
-
-export default BlogPage;
-
-// import { db, posts } from '../../../lib/db'
-// import styles from './Blog.module.scss';
-//
-// export default async function BlogPage() {
-//     let allPosts = await db.select().from(posts)
-//     return (
-//         <ul>
-//             {allPosts.map((post) => (
-//                 <li key={post.id}>{post.title}</li>
-//             ))}
-//         </ul>
-//     )
-// }
-//
-//
-// //
-// // const BlogPage = async () => {
-// //     let posts = [];
-// //     let errorMessage = '';
-// //
-// //     try {
-// //         const res = await fetcher('http://localhost:3000/api/posts');
-// //
-// //         if (!res.ok) {
-// //             const errorData = await res.json();
-// //             throw new Error(`HTTP error! Status: ${res.status}, Message: ${errorData.error}`);
-// //         }
-// //
-// //         posts = await data.json();
-// //     } catch (error) {
-// //         console.error('Error fetching posts:', error);
-// //         errorMessage = `Error fetching posts: ${error.message}`;
-// //     }
-// //
-// //     return (
-// //         <div className={styles.container}>
-// //             {errorMessage ? (
-// //                 <div>{errorMessage}</div>
-// //             ) : (
-// //                 posts.map(post => (
-// //                     <div key={post.id}>
-// //                         <h2>{post.title}</h2>
-// //                         <p>{post.content}</p>
-// //                         <p>{new Date(post.created_at).toLocaleDateString()}</p>
-// //                     </div>
-// //                 ))
-// //             )}
-// //         </div>
-// //     );
-// // };
-//
-// export default BlogPage;
+}
