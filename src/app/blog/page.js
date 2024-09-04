@@ -39,7 +39,10 @@ export default function PostsPage() {
             <h1>Posts</h1>
             <ul>
                 {posts.map((post) => (
-                    <li key={post.id}>{post.title}</li>
+                    <li key={post.id} className={styles.postItem}>
+                        <h2 className={styles.title}>{post.title}</h2>
+                        <p className={styles.content}>{post.content}</p>
+                    </li>
                 ))}
             </ul>
         </div>
