@@ -1,17 +1,8 @@
-const { Pool } = require('pg');
-
-const pool = new Pool({
-    user: process.env.PG_USER,
-    host: process.env.PG_HOST,
-    database: process.env.PG_DATABASE,
-    password: process.env.PG_PASSWORD,
-    port: process.env.PG_PORT,
-    ssl: {
-        rejectUnauthorized: false,
-    },
-});
+const knex = require('knex')(require('./knexfile'));
 
 exports.handler = async function(event, context) {
+    console.log('Function invoked');
+
     if (event.httpMethod === 'OPTIONS') {
         return {
             statusCode: 200,
@@ -24,9 +15,20 @@ exports.handler = async function(event, context) {
         };
     }
 
-    const client = await pool.connect();
+    const id = event.queryStringParameters?.id;
+    let posts;
+
     try {
-        const result = await client.query('SELECT * FROM posts');
+        if (id) {
+            console.log('Fetching post with ID:', id);
+            posts = await knex('posts').where({ id }).first();
+        } else {
+            console.log('Fetching all posts');
+            posts = await knex('posts').select();
+        }
+
+        console.log('Posts:', posts);
+
         return {
             statusCode: 200,
             headers: {
@@ -45,7 +47,5 @@ exports.handler = async function(event, context) {
             },
             body: JSON.stringify({ error: 'Error fetching data' }),
         };
-    } finally {
-        client.release();
     }
 };

@@ -38,7 +38,6 @@ export default function PostsPage() {
 
     return (
         <div className={styles.container}>
-            <h1>Blog</h1>
             <div className={styles.cardContainer}>
                 {posts.map((post) => (
                     <div
