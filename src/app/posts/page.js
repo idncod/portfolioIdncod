@@ -2,7 +2,7 @@
 import React from 'react';
 
 async function fetchPosts() {
-    const response = await fetch('https://your-netlify-site.netlify.app/.netlify/functions/fetch-posts');
+    const response = await fetch('https://idncod.netlify.app/.netlify/functions/fetch-posts');
     const data = await response.json();
 
     if (!response.ok) {
