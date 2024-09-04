@@ -1,5 +1,6 @@
 'use client'
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import styles from "./Blog.module.scss";
 
 async function fetchPosts() {
@@ -16,6 +17,7 @@ async function fetchPosts() {
 export default function PostsPage() {
     const [posts, setPosts] = React.useState([]);
     const [error, setError] = React.useState(null);
+    const router = useRouter();
 
     React.useEffect(() => {
         async function loadPosts() {
@@ -36,15 +38,19 @@ export default function PostsPage() {
 
     return (
         <div className={styles.container}>
-            <h1>Posts</h1>
-            <ul>
+            <h1>Blog</h1>
+            <div className={styles.cardContainer}>
                 {posts.map((post) => (
-                    <li key={post.id} className={styles.postItem}>
+                    <div
+                        key={post.id}
+                        className={styles.card}
+                        onClick={() => router.push(`/blog/${post.id}`)}
+                    >
                         <h2 className={styles.title}>{post.title}</h2>
-                        <p className={styles.content}>{post.content}</p>
-                    </li>
+                        <p className={styles.content}>{post.content.substring(0, 100)}...</p>
+                    </div>
                 ))}
-            </ul>
+            </div>
         </div>
     );
 }
