@@ -1,7 +1,18 @@
 .navbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;  /* Center the content horizontally */
+  align-items: center;
+  position: relative; /* Relative positioning for absolute items */
   margin-top: 60px;
+  padding: 0 20px;  /* Padding to provide spacing on the sides */
+}
+
+.navCenter {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  justify-items: center;
+
 }
 
 .navList {
@@ -44,4 +55,62 @@
 
 .li {
   position: relative;
+}
+
+.socialIcons {
+  display: flex;
+  align-items: center;  /* Ensure vertical alignment */
+  gap: 15px;
+  margin-left: auto; /* Push icons to the right */
+  position: relative;
+}
+
+.icon {
+  font-size: 24px;
+  color: #ccff00;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 5px rgba(204, 255, 0, 0.7));
+  }
+}
+
+
+@media (max-width: 768px) {
+  .burgerMenu {
+    display: block;
+  }
+
+  .navList {
+    display: none;
+    flex-direction: column;
+  }
+  .navList.open {
+    display: flex;
+    gap: 12px;
+    margin-top: 50px;
+  }
+
+  .socialIcons {
+    display: flex;
+    align-items: start;
+    gap: 15px;
+    margin-left: 0; /* Remove left margin to align with nav items */
+    margin-top: 20px; /* Add space above social icons */
+  }
+
+  .link {
+    font-size: 50px;
+  }
+
+  .icon {
+    font-size: 40px;
+  }
+
+  .navbar > .navCenter {
+    justify-content: left;  /* Center the content horizontally */
+  }
+
 }

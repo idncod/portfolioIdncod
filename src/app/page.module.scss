@@ -1,9 +1,10 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+@import './variables.scss';
 
 .main{
     margin-top: 10vh;
     margin-bottom: 10vh;
-    background-color: rgb(24, 24, 24);
+    background-color: $bgColorPrimary;
 }
 
 .list {
@@ -48,23 +49,50 @@
     }
 }
 
+//
+//.social {
+//    color: #CCFF00;
+//  transition: transform 0.3s ease, box-shadow 0.3s ease;
+//    margin: 0;
+//    padding: 20px;
+//  }
+//
+//
+//  .social:hover {
+//    color: rgb(163, 229, 255);
+//    transform: scale(1.2); /* Zoom in on hover */
+//    box-shadow: 0 0 20px 10px rgba(204, 255, 0, 0.5);   }
+//
+//  .social:visited {
+//    color: inherit;
+//  }
 
-.icon {
-    color: white;
-    transition: color 0.3s, box-shadow 0.3s;
-    margin: 0px;
-    padding: 20px;
-  }
+.social {
+  padding: 10px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  
-  .icon:hover {
-    color: rgb(163, 229, 255);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add blurred shadow on hover */
-  }
-  
-  .icon:visited {
-    color: inherit;
-  }
+.social svg {
+  width: 50px;
+  height: 50px;
+  fill: currentColor;
+}
+
+.social:hover svg path {
+  filter: drop-shadow(0 0 10px rgba(204, 255, 0, 0.5));
+  transform: scale(1.2);
+}
+
+.social:hover {
+  color: rgb(163, 229, 255);
+}
+
+.social:visited {
+  color: inherit;
+}
 
   .navbar {
     display: flex;
@@ -102,15 +130,26 @@
     margin-right: 0; 
   }
   
-  .flexy {
-    display: flex;
-    flex-wrap: wrap;
-    /* border: 3px solid green; */
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    margin: 10px;
+//  .flexy {
+//    display: flex;
+//    flex-wrap: wrap;
+//    //border: 3px solid green;
+//    justify-content: center;
+//    align-items: center;
+//    padding: 20px;
+//    margin: 10px;
+//}
+
+.socialGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); /* Auto-fits the icons */
+  gap: 20px; /* Space between icons */
+  justify-content: center; /* Centers the entire grid horizontally */
+  align-items: center; /* Centers items vertically */
+  padding: 20px;
+  height: 100vh; /* Adjust height if necessary for vertical centering */
 }
+
 
 // .griddy {
 //         display: grid;
