@@ -1,0 +1,43 @@
+.mobileMenu {
+  .burgerMenu {
+    display: block;
+    cursor: pointer;
+  }
+
+  .menuContent {
+    display: none; /* Hide menu by default */
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menuContent.open {
+    display: flex; /* Show menu when open */
+  }
+
+  .navList {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .socialIcons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .icon {
+    font-size: 24px;
+    color: #ccff00;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+
+    &:hover {
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 5px rgba(204, 255, 0, 0.7)); /* Lime shadow on hover */
+    }
+  }
+}
