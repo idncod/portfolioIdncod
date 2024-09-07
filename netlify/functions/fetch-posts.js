@@ -1,32 +1,26 @@
-const knex = require('knex')(require('../../knexfile'));
+const { Pool } = require('pg');
+require('dotenv').config();
+
+const pool = new Pool({
+    host: process.env.PG_HOST,
+    database: process.env.PG_DATABASE,
+    user: process.env.PG_USER,
+    password: process.env.PG_PASSWORD,
+    ssl: { rejectUnauthorized: false }
+});
+
 exports.handler = async function(event, context) {
-    console.log('Function invoked');
-
-    if (event.httpMethod === 'OPTIONS') {
-        return {
-            statusCode: 200,
-            headers: {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-                'Access-Control-Allow-Headers': 'Content-Type',
-            },
-            body: '',
-        };
-    }
-
     const id = event.queryStringParameters?.id;
-    let posts;
+    let result;
 
     try {
         if (id) {
-            console.log('Fetching post with ID:', id);
-            posts = await knex('posts').where({ id }).first();
+            const { rows } = await pool.query('SELECT * FROM posts WHERE id = $1', [id]);
+            result = rows[0];
         } else {
-            console.log('Fetching all posts');
-            posts = await knex('posts').select();
+            const { rows } = await pool.query('SELECT * FROM posts');
+            result = rows;
         }
-
-        console.log('Posts:', posts);
 
         return {
             statusCode: 200,
@@ -34,7 +28,7 @@ exports.handler = async function(event, context) {
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(posts),
+            body: JSON.stringify(result),
         };
     } catch (error) {
         console.error('Error fetching data:', error);
