@@ -3,12 +3,20 @@ import ClientPostsPage from './ClientPostsPage';
 import styles from './Blog.module.scss';
 
 async function fetchPosts() {
-    const response = await fetch('https://idncod.netlify.app/.netlify/functions/fetch-posts');
-    if (!response.ok) {
-        throw new Error('Failed to fetch posts');
+    try {
+        const response = await fetch('/api/posts');
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        return response.json();
+    } catch (error) {
+        console.error('Failed to fetch posts:', error);
+        return [];
     }
-    return response.json();
 }
+
 
 export default async function PostsPage() {
     let posts = [];
@@ -18,5 +26,13 @@ export default async function PostsPage() {
         console.error('Error fetching posts:', error);
     }
 
-    return <ClientPostsPage posts={posts} />;
+    return (
+        <div>
+            {posts.length === 0 ? (
+                <div>No posts available.</div>
+            ) : (
+                <ClientPostsPage posts={posts} />
+            )}
+        </div>
+    );
 }
