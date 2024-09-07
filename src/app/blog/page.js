@@ -1,6 +1,5 @@
-'use client'
 import React from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 import styles from "./Blog.module.scss";
 
 async function fetchPosts() {
@@ -14,23 +13,22 @@ async function fetchPosts() {
     return data;
 }
 
-export default function PostsPage() {
-    const [posts, setPosts] = React.useState([]);
-    const [error, setError] = React.useState(null);
+// Move the data fetching to getServerSideProps
+export async function getServerSideProps() {
+    try {
+        const posts = await fetchPosts();
+        return {
+            props: { posts },
+        };
+    } catch (error) {
+        return {
+            props: { error: error.message },
+        };
+    }
+}
+
+export default function PostsPage({ posts, error }) {
     const router = useRouter();
-
-    React.useEffect(() => {
-        async function loadPosts() {
-            try {
-                const postsData = await fetchPosts();
-                setPosts(postsData);
-            } catch (error) {
-                setError(error.message);
-            }
-        }
-
-        loadPosts();
-    }, []);
 
     if (error) {
         return <div>Error: {error}</div>;
