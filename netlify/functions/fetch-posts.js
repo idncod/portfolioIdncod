@@ -1,5 +1,3 @@
-const knex = require('knex')(require('./knexfile'));
-
 exports.handler = async function(event, context) {
     console.log('Function invoked');
 
@@ -35,7 +33,7 @@ exports.handler = async function(event, context) {
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(result.rows),
+            body: JSON.stringify(posts),  // Changed from result.rows to posts
         };
     } catch (error) {
         console.error('Error fetching data:', error);
