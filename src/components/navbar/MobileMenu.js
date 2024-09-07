@@ -33,12 +33,12 @@ const MobileMenu = ({ isOpen, toggleMenu }) => {
                                 whileHover="hover"
                                 initial="initial"
                             >
-                                <motion.a
+                                <div
                                     className={styles.link}
                                     variants={wiggleVariants}
                                 >
                                     Blog
-                                </motion.a>
+                                </div>
                                 <motion.span className={styles.underline} variants={underlineVariants}/>
                             </motion.div>
                         </Link>
@@ -50,12 +50,12 @@ const MobileMenu = ({ isOpen, toggleMenu }) => {
                                 whileHover="hover"
                                 initial="initial"
                             >
-                                <motion.a
+                                <div
                                     className={styles.link}
                                     variants={wiggleVariants}
                                 >
                                     Work
-                                </motion.a>
+                                </div>
                                 <motion.span className={styles.underline} variants={underlineVariants}/>
                             </motion.div>
                         </Link>
@@ -67,12 +67,12 @@ const MobileMenu = ({ isOpen, toggleMenu }) => {
                                 whileHover="hover"
                                 initial="initial"
                             >
-                                <motion.a
+                                <div
                                     className={styles.link}
                                     variants={wiggleVariants}
                                 >
                                     Contact
-                                </motion.a>
+                                </div>
                                 <motion.span className={styles.underline} variants={underlineVariants}/>
                             </motion.div>
                         </Link>

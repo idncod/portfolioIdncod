@@ -1,11 +1,14 @@
 'use client';
 
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import styles from './Blog.module.scss';
 
 function ClientPostsPage({ posts }) {
+    const router = useRouter();
+
     const handlePostClick = (postId) => {
-        window.location.href = `/blog/${postId}`;
+        router.push(`/blog/${postId}`);
     };
 
     return (

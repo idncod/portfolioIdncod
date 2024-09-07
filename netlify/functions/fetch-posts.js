@@ -1,3 +1,4 @@
+const knex = require('knex')(require('../../knexfile'));
 exports.handler = async function(event, context) {
     console.log('Function invoked');
 
