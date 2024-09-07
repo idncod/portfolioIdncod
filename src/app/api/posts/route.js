@@ -1,34 +1,42 @@
-import { NextResponse } from 'next/server';
-import { query } from '../../../lib/db';
-import NodeCache from 'node-cache';
+import { Pool } from 'pg';
 
-// Initialize a cache with a time-to-live of 5 minutes
-const cache = new NodeCache({ stdTTL: 60 * 5 });
+const pool = new Pool({
+    host: process.env.PG_HOST,
+    database: process.env.PG_DATABASE,
+    user: process.env.PG_USER,
+    password: process.env.PG_PASSWORD,
+    ssl: { rejectUnauthorized: false },
+});
 
 export async function GET(request) {
     const { searchParams } = new URL(request.url);
-    const page = parseInt(searchParams.get('page') || '1', 10);
-    const limit = 10; // Number of posts per page
-    const offset = (page - 1) * limit;
-
-    // Check the cache first
-    const cacheKey = `posts_page_${page}`;
-    const cachedPosts = cache.get(cacheKey);
-
-    if (cachedPosts) {
-        return NextResponse.json(cachedPosts);
-    }
+    const id = searchParams.get('id');
+    let result;
 
     try {
-        // Fetch posts with pagination and reduced fields
-        const posts = await query('SELECT id, title, content FROM posts ORDER BY created_at DESC LIMIT ? OFFSET ?', [limit, offset]);
+        if (id) {
+            const { rows } = await pool.query('SELECT * FROM posts WHERE id = $1', [id]);
+            result = rows[0];
+        } else {
+            const { rows } = await pool.query('SELECT * FROM posts');
+            result = rows;
+        }
 
-        // Store results in cache
-        cache.set(cacheKey, posts);
-
-        return NextResponse.json(posts);
+        return new Response(JSON.stringify(result), {
+            status: 200,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json',
+            },
+        });
     } catch (error) {
-        console.error('Error fetching posts:', error.message, error.stack);
-        return NextResponse.json({ message: 'Error fetching posts' }, { status: 500 });
+        console.error('Error fetching data:', error);
+        return new Response(JSON.stringify({ error: 'Error fetching data' }), {
+            status: 500,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json',
+            },
+        });
     }
 }
