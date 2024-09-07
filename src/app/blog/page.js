@@ -3,8 +3,12 @@ import ClientPostsPage from './ClientPostsPage';
 import styles from './Blog.module.scss';
 
 async function fetchPosts() {
+    const isServer = typeof window === 'undefined';
+    const baseURL = isServer
+        ? process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000'
+        : '';
     try {
-        const response = await fetch('/api/posts');
+        const response = await fetch(`${baseURL}/api/posts`);
 
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
