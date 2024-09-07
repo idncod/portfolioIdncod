@@ -24,61 +24,52 @@ const DesktopMenu = () => {
         <div className={styles.desktopMenu}>
             <ul className={styles.navList}>
                 <li className={styles.li}>
-                    <Link href="/blog" passHref>
-                        <ClientOnly>
+                    <ClientOnly>
+                        <Link href="/blog" passHref>
                             <motion.div
                                 className={styles.linkWrapper}
                                 whileHover="hover"
                                 initial="initial"
                             >
-                                <motion.a
-                                    className={styles.link}
-                                    variants={wiggleVariants}
-                                >
+                                <span className={styles.link} variants={wiggleVariants}>
                                     Blog
-                                </motion.a>
+                                </span>
                                 <motion.span className={styles.underline} variants={underlineVariants}/>
                             </motion.div>
-                        </ClientOnly>
-                    </Link>
+                        </Link>
+                    </ClientOnly>
                 </li>
                 <li className={styles.li}>
-                    <Link href="/work" passHref>
-                        <ClientOnly>
+                    <ClientOnly>
+                        <Link href="/work" passHref>
                             <motion.div
                                 className={styles.linkWrapper}
                                 whileHover="hover"
                                 initial="initial"
                             >
-                                <motion.a
-                                    className={styles.link}
-                                    variants={wiggleVariants}
-                                >
+                                <span className={styles.link} variants={wiggleVariants}>
                                     Work
-                                </motion.a>
+                                </span>
                                 <motion.span className={styles.underline} variants={underlineVariants}/>
                             </motion.div>
-                        </ClientOnly>
-                    </Link>
+                        </Link>
+                    </ClientOnly>
                 </li>
                 <li className={styles.li}>
-                    <Link href="/contact" passHref>
-                        <ClientOnly>
+                    <ClientOnly>
+                        <Link href="/contact" passHref>
                             <motion.div
                                 className={styles.linkWrapper}
                                 whileHover="hover"
                                 initial="initial"
                             >
-                                <motion.a
-                                    className={styles.link}
-                                    variants={wiggleVariants}
-                                >
+                                <span className={styles.link} variants={wiggleVariants}>
                                     Contact
-                                </motion.a>
+                                </span>
                                 <motion.span className={styles.underline} variants={underlineVariants}/>
                             </motion.div>
-                        </ClientOnly>
-                    </Link>
+                        </Link>
+                    </ClientOnly>
                 </li>
             </ul>
             <div className={styles.socialIcons}>

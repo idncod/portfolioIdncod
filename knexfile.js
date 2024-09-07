@@ -2,10 +2,10 @@ module.exports = {
   development: {
     client: 'pg',
     connection: {
-      host: 'PG_HOST',
-      database: 'PG_DATABASE',
-      user: 'PG_USER',
-      password: 'PG_PASSWORD',
+      host: process.env.PG_HOST,
+      database: process.env.PG_DATABASE,
+      user: process.env.PG_USER,
+      password: process.env.PG_PASSWORD,
       ssl: { rejectUnauthorized: false }
     },
     pool: {
@@ -20,10 +20,10 @@ module.exports = {
   staging: {
     client: 'pg',
     connection: {
-      host: 'PG_HOST',
-      database: 'PG_DATABASE',
-      user: 'PG_USER',
-      password: 'PG_PASSWORD',
+      host: process.env.PG_HOST,
+      database: process.env.PG_DATABASE,
+      user: process.env.PG_USER,
+      password: process.env.PG_PASSWORD,
       ssl: { rejectUnauthorized: false }
     },
     pool: {
@@ -38,10 +38,10 @@ module.exports = {
   production: {
     client: 'pg',
     connection: {
-      host: 'PG_HOST',
-      database: 'PG_DATABASE',
-      user: 'PG_USER',
-      password: 'PG_PASSWORD',
+      host: process.env.PG_HOST,
+      database: process.env.PG_DATABASE,
+      user: process.env.PG_USER,
+      password: process.env.PG_PASSWORD,
       ssl: { rejectUnauthorized: false }
     },
     pool: {
