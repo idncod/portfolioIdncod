@@ -14,7 +14,10 @@ async function fetchPosts() {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
-        return response.json();
+        const data = await response.json();
+        console.log('Fetched posts:', data);
+        return data;
+
     } catch (error) {
         console.error('Failed to fetch posts:', error);
         return [];
