@@ -33,7 +33,7 @@ exports.handler = async function(event, context) {
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(posts),  // Changed from result.rows to posts
+            body: JSON.stringify(posts),
         };
     } catch (error) {
         console.error('Error fetching data:', error);
