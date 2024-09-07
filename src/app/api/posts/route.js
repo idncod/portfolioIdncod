@@ -19,6 +19,7 @@ export async function GET(request) {
             result = rows[0];
         } else {
             const { rows } = await pool.query('SELECT * FROM posts');
+            console.log('Fetched rows:', rows);
             result = rows;
         }
 
