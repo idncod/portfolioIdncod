@@ -25,15 +25,41 @@ const DesktopMenu = () => {
             <ul className={styles.navList}>
                 <li className={styles.li}>
                     <ClientOnly>
+                        <Link href="/" passHref>
+                            <motion.div
+                                className={styles.linkWrapper}
+                                whileHover="hover"
+                                initial="initial"
+                            >
+                                <motion.span
+                                    className={styles.link}
+                                    variants={wiggleVariants}
+                                    whileHover={{scale: 1.1}}
+                                    transition={{duration: 0.3}}
+                                >
+                                    Index
+                                </motion.span>
+                                <motion.span className={styles.underline} variants={underlineVariants}/>
+                            </motion.div>
+                        </Link>
+                    </ClientOnly>
+                </li>
+                <li className={styles.li}>
+                    <ClientOnly>
                         <Link href="/blog" passHref>
                             <motion.div
                                 className={styles.linkWrapper}
                                 whileHover="hover"
                                 initial="initial"
                             >
-                                <span className={styles.link} variants={wiggleVariants}>
+                                <motion.span
+                                    className={styles.link}
+                                    variants={wiggleVariants}
+                                    whileHover={{scale: 1.1}}
+                                    transition={{duration: 0.3}}
+                                >
                                     Blog
-                                </span>
+                                </motion.span>
                                 <motion.span className={styles.underline} variants={underlineVariants}/>
                             </motion.div>
                         </Link>
@@ -47,9 +73,14 @@ const DesktopMenu = () => {
                                 whileHover="hover"
                                 initial="initial"
                             >
-                                <span className={styles.link} variants={wiggleVariants}>
+                                <motion.span
+                                    className={styles.link}
+                                    variants={wiggleVariants}
+                                    whileHover={{scale: 1.1}}
+                                    transition={{duration: 0.3}}
+                                >
                                     Work
-                                </span>
+                                </motion.span>
                                 <motion.span className={styles.underline} variants={underlineVariants}/>
                             </motion.div>
                         </Link>
@@ -63,9 +94,14 @@ const DesktopMenu = () => {
                                 whileHover="hover"
                                 initial="initial"
                             >
-                                <span className={styles.link} variants={wiggleVariants}>
+                                <motion.span
+                                    className={styles.link}
+                                    variants={wiggleVariants}
+                                    whileHover={{scale: 1.1}}
+                                    transition={{duration: 0.3}}
+                                >
                                     Contact
-                                </span>
+                                </motion.span>
                                 <motion.span className={styles.underline} variants={underlineVariants}/>
                             </motion.div>
                         </Link>
@@ -73,9 +109,18 @@ const DesktopMenu = () => {
                 </li>
             </ul>
             <div className={styles.socialIcons}>
-                <FiLinkedin className={styles.icon}/>
-                <FiTwitter className={styles.icon}/>
-                <FiGithub className={styles.icon}/>
+                <a href="https://www.linkedin.com/in/violaly/" target="_blank" rel="noopener noreferrer"
+                   className={styles.iconLink}>
+                    <FiLinkedin className={styles.icon}/>
+                </a>
+                <a href="https://twitter.com/viola-idncod/" target="_blank" rel="noopener noreferrer"
+                   className={styles.iconLink}>
+                    <FiTwitter className={styles.icon}/>
+                </a>
+                <a href="https://github.com/idncod" target="_blank" rel="noopener noreferrer"
+                   className={styles.iconLink}>
+                    <FiGithub className={styles.icon}/>
+                </a>
             </div>
         </div>
     );

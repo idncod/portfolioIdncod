@@ -14,10 +14,10 @@ const Navbar = () => {
         setIsMounted(true);
 
         const handleResize = () => {
-            setIsMobile(window.innerWidth <= 768); // Adjust based on your breakpoint
+            setIsMobile(window.innerWidth <= 768);
         };
 
-        handleResize(); // Check on initial load
+        handleResize();
         window.addEventListener('resize', handleResize);
 
         return () => {

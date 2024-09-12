@@ -1,17 +1,35 @@
 .mobileMenu {
+  position: relative;
+
+  .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    background-color: #ccff00;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -2;
+
+  }
+
   .burgerMenu {
     display: block;
     cursor: pointer;
+    position: relative;
+    z-index: 10;
   }
 
   .menuContent {
-    display: none; /* Hide menu by default */
+    display: none;
     flex-direction: column;
     align-items: center;
+    z-index: 0;
   }
 
   .menuContent.open {
-    display: flex; /* Show menu when open */
+    display: flex;
   }
 
   .navList {
@@ -24,9 +42,14 @@
 
   .socialIcons {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 15px;
+    justify-content: left;
+    gap: 25px;
+  }
+
+  .li {
+    margin-bottom: 20px;
   }
 
   .icon {
@@ -37,12 +60,51 @@
 
     &:hover {
       transform: scale(1.2);
-      filter: drop-shadow(0 0 5px rgba(204, 255, 0, 0.7)); /* Lime shadow on hover */
+      filter: drop-shadow(0 0 5px rgba(204, 255, 0, 0.7));
     }
+  }
+  .limeIcon {
+    color: #ccff00;
+  }
+  .purpleIcon {
+    color: #1e003a;
+  }
+
+  .closedIcon {
+    color: #ccff00;
+  }
+
+  .openIcon {
+    color: #1e003a;
   }
   .link {
     font-size: 50px;
-    color: #fff;
+    color: #1e003a;
     text-underline: none;
+  }
+
+  .socialIcon {
+    font-size: 24px;
+    color: #fff;
+
+    &:hover {
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 5px rgba(204, 255, 0, 0.7));
+    }
+  }
+
+  .menuContent.open .socialIcons {
+    color: #1e003a;
+    .icon {
+      font-size: 24px;
+      color: #1e003a;
+      cursor: pointer;
+      transition: transform 0.3s ease, filter 0.3s ease;
+
+      &:hover {
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 5px rgba(30, 0, 58, 0.7));
+      }
+    }
   }
 }
