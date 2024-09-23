@@ -18,12 +18,12 @@ const Work = () => {
       <section className={styles.greetingContainer}>
           <div className={styles.greeting}>
           <h1>
-              Hi user 👋! I`&apos;`m Viola, a problem-solver and a software engineer.
+              Hi user 👋! I&apos;m Viola, a problem-solver and a software engineer.
 
               <span>&#10240;My passion and expertise are in designing sophisticated systems with limiting constraints.
               {/*I post in my blog regularly on tech things I'm intrigued to share my knowledge about.*/}
-              On this page you`&apos;`ll read about my approach, tools, challenges, and how I overcome them.
-              In my spare time, I enjoy scuba diving, I`&apos;`m a PADI-certified pro Divemaster.
+              On this page you&apos;ll read about my approach, tools, challenges, and how I overcome them.
+              In my spare time, I enjoy scuba diving, I&apos;m a PADI-certified pro Divemaster.
                   I like being a mentor to fellow engineers and bring value with my experience.</span>
             </h1>
 
