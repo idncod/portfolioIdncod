@@ -44,9 +44,32 @@ const DesktopMenu = () => {
                         </Link>
                     </ClientOnly>
                 </li>
+
+                {/*<li className={styles.li}>*/}
+                {/*    <ClientOnly>*/}
+                {/*        <Link href="/blog" passHref>*/}
+                {/*            <motion.div*/}
+                {/*                className={styles.linkWrapper}*/}
+                {/*                whileHover="hover"*/}
+                {/*                initial="initial"*/}
+                {/*            >*/}
+                {/*                <motion.span*/}
+                {/*                    className={styles.link}*/}
+                {/*                    variants={wiggleVariants}*/}
+                {/*                    whileHover={{scale: 1.1}}*/}
+                {/*                    transition={{duration: 0.3}}*/}
+                {/*                >*/}
+                {/*                    Blog*/}
+                {/*                </motion.span>*/}
+                {/*                <motion.span className={styles.underline} variants={underlineVariants}/>*/}
+                {/*            </motion.div>*/}
+                {/*        </Link>*/}
+                {/*    </ClientOnly>*/}
+                {/*</li>*/}
+
                 <li className={styles.li}>
                     <ClientOnly>
-                        <Link href="/blog" passHref>
+                        <Link href="/portfolio" passHref>
                             <motion.div
                                 className={styles.linkWrapper}
                                 whileHover="hover"
@@ -58,7 +81,7 @@ const DesktopMenu = () => {
                                     whileHover={{scale: 1.1}}
                                     transition={{duration: 0.3}}
                                 >
-                                    Blog
+                                    Portfolio
                                 </motion.span>
                                 <motion.span className={styles.underline} variants={underlineVariants}/>
                             </motion.div>
@@ -67,7 +90,7 @@ const DesktopMenu = () => {
                 </li>
                 <li className={styles.li}>
                     <ClientOnly>
-                        <Link href="/work" passHref>
+                        <Link href="/about" passHref>
                             <motion.div
                                 className={styles.linkWrapper}
                                 whileHover="hover"
@@ -79,7 +102,7 @@ const DesktopMenu = () => {
                                     whileHover={{scale: 1.1}}
                                     transition={{duration: 0.3}}
                                 >
-                                    Work
+                                    About
                                 </motion.span>
                                 <motion.span className={styles.underline} variants={underlineVariants}/>
                             </motion.div>

@@ -19,6 +19,9 @@ import web5 from "../../public/images/web5.png";
 import web6 from "../../public/images/web6.png";
 import ProjectCard from '../components/ProjectCard';
 import ClientOnly from "../components/ClientOnly";
+import { SlFire } from "react-icons/sl";
+import { HiOutlineLightBulb } from "react-icons/hi";
+import { HiRocketLaunch, HiMiniStar, HiMiniSun } from "react-icons/hi2";
 
 export default function Home() {
     useEffect(() => {
@@ -48,6 +51,8 @@ export default function Home() {
                             1000,
                             'Software Engineer',
                             1000,
+                            'Problem-Solver',
+                            1000,
                             'Frontend',
                             1000,
                             'DevOps',
@@ -63,8 +68,21 @@ export default function Home() {
                         repeat={Infinity}
                         className="typing-animation"
                     />
+                </div>
 
-
+                <div className={styles.iconWrapper}>
+                    <div className={styles.iconContainer}>
+                        <HiRocketLaunch className={styles.icon} />
+                        <p className={styles.iconText}>Fast agile delivery</p>
+                    </div>
+                    <div className={styles.iconContainer}>
+                        <HiMiniStar className={styles.icon} />
+                        <p className={styles.iconText}>Maximum dedication</p>
+                    </div>
+                    <div className={styles.iconContainer}>
+                        <HiMiniSun className={styles.icon} />
+                        <p className={styles.iconText}>Insightful</p>
+                    </div>
                 </div>
 
                 <section style={{display: 'grid', placeItems: 'center', minHeight: '100vh'}}>

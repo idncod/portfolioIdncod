@@ -93,8 +93,24 @@ const MobileMenu = ({ isOpen, toggleMenu }) => {
                         </Link>
                     </motion.li>
 
+                    {/*<motion.li className={styles.li} variants={itemVariants}>*/}
+                    {/*    <Link href="/blog" passHref>*/}
+                    {/*        <motion.div*/}
+                    {/*            className={styles.linkWrapper}*/}
+                    {/*            whileHover="hover"*/}
+                    {/*            initial="initial"*/}
+                    {/*            onClick={handleLinkClick}*/}
+                    {/*        >*/}
+                    {/*            <motion.div className={styles.link} variants={wiggleVariants}>*/}
+                    {/*                Blog*/}
+                    {/*            </motion.div>*/}
+                    {/*            <motion.span className={styles.underline} variants={underlineVariants}/>*/}
+                    {/*        </motion.div>*/}
+                    {/*    </Link>*/}
+                    {/*</motion.li>*/}
+
                     <motion.li className={styles.li} variants={itemVariants}>
-                        <Link href="/blog" passHref>
+                        <Link href="/portfolio" passHref>
                             <motion.div
                                 className={styles.linkWrapper}
                                 whileHover="hover"
@@ -102,7 +118,7 @@ const MobileMenu = ({ isOpen, toggleMenu }) => {
                                 onClick={handleLinkClick}
                             >
                                 <motion.div className={styles.link} variants={wiggleVariants}>
-                                    Blog
+                                    Portfolio
                                 </motion.div>
                                 <motion.span className={styles.underline} variants={underlineVariants}/>
                             </motion.div>
@@ -110,7 +126,7 @@ const MobileMenu = ({ isOpen, toggleMenu }) => {
                     </motion.li>
 
                     <motion.li className={styles.li} variants={itemVariants}>
-                        <Link href="/work" passHref>
+                        <Link href="/about" passHref>
                             <motion.div
                                 className={styles.linkWrapper}
                                 whileHover="hover"
@@ -118,7 +134,7 @@ const MobileMenu = ({ isOpen, toggleMenu }) => {
                                 onClick={handleLinkClick}
                             >
                                 <motion.div className={styles.link} variants={wiggleVariants}>
-                                    Work
+                                    About
                                 </motion.div>
                                 <motion.span className={styles.underline} variants={underlineVariants}/>
                             </motion.div>

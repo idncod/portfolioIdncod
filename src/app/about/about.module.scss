@@ -1,0 +1,40 @@
+@import '../variables';
+
+.aboutContainer {
+  margin-top: 140px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+.greetingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  //border: solid 1px #ccff00;
+  border-radius: 15px;
+  max-width: 800px;
+  max-height: 300px;
+  //background-color: rgba(204, 255, 0, 0.41);
+}
+
+.greeting h1 {
+  padding: 20px;
+  color: #fff;
+}
+
+.greeting span {
+  color: #e3f0de;
+}
+
+.greeting p {
+  margin: 0;
+  padding: 20px;
+  color: #e3f0de;
+  margin-bottom: 40px;
+}
