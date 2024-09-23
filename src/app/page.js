@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 'use client';
 import Link from 'next/link';
 import styles from './page.module.scss';

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 'use client'
 import Image from "next/image";
 // import EmblaCarousel from '../../components/embla/EmblaCarousel';
